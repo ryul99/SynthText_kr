@@ -409,7 +409,7 @@ class Colorize(object):
 
         diff = np.linalg.norm(bg_px-txt_px,ord=None,axis=1)
         diff = np.percentile(diff,[10,30,50,70,90])
-        print ("color diff percentile :", diff)
+        print("color diff percentile :", diff)
         return diff, (bgo,txto)
 
     def color(self, bg_arr, text_arr, hs, place_order=None, pad=20):
