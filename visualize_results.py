@@ -140,11 +140,10 @@ def main(db_fname):
         txt = db['data'][k].attrs['txt']
 
         viz_textbb(rgb, [charBB], wordBB, index=k, txt=txt)
-        print "image name        : ", colorize(Color.RED, k, bold=True)
-        print "  ** no. of chars : ", colorize(Color.YELLOW, charBB.shape[-1])
-        print "  ** no. of words : ", colorize(Color.YELLOW, wordBB.shape[-1])
-        print "  ** text         : ", colorize(Color.GREEN, txt)
-        # print "  ** text         : ", colorize(Color.GREEN, txt.encode('utf-8'))
+        print("image name        : ", colorize(Color.RED, k, bold=True))
+        print("  ** no. of chars : ", colorize(Color.YELLOW, charBB.shape[-1]))
+        print("  ** no. of words : ", colorize(Color.YELLOW, wordBB.shape[-1]))
+        print("  ** text         : ", colorize(Color.GREEN, txt))
 
         # if 'q' in raw_input("next? ('q' to exit) : "):
             # break
