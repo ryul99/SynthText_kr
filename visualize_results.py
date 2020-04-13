@@ -38,7 +38,7 @@ def viz_textbb(text_im, charBB_list, wordBB, index, txt, alpha=1.0):
     H,W = text_im.shape[:2]
     
     # plot the word-BB:
-    for i in xrange(wordBB.shape[-1]):
+    for i in range(wordBB.shape[-1]):
         bb = wordBB[:,:,i]
         bb = np.c_[bb,bb[:,0]]
         plt.plot(bb[0,:], bb[1,:], 'g', alpha=alpha)
@@ -46,16 +46,16 @@ def viz_textbb(text_im, charBB_list, wordBB, index, txt, alpha=1.0):
 
         # visualize the indiv vertices:
         vcol = ['r','g','b','k']
-        for j in xrange(4):
+        for j in range(4):
             plt.scatter(bb[0,j],bb[1,j],color=vcol[j]) 
 
 
     # plot the character-BB:
-    for i in xrange(len(charBB_list)):
+    for i in range(len(charBB_list)):
         bbs = charBB_list[i]
         ni = bbs.shape[-1]
 
-        for j in xrange(ni):
+        for j in range(ni):
             bb = bbs[:,:,j]
             bb = np.c_[bb,bb[:,0]]
             plt.plot(bb[0,:], bb[1,:], 'r', alpha=alpha/2)
@@ -132,7 +132,7 @@ def _tojpg(text_im, polygon, index, k, typ):
 def main(db_fname):
     db = h5py.File(db_fname, 'r')
     dsets = sorted(db['data'].keys())
-    print "total number of images : ", colorize(Color.RED, len(dsets), highlight=True)
+    print("total number of images : ", colorize(Color.RED, len(dsets), highlight=True))
     for k in dsets:
         rgb = db['data'][k][...]
         charBB = db['data'][k].attrs['charBB']
