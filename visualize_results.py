@@ -120,13 +120,13 @@ def _tojpg(text_im, polygon, index, k, typ):
 
     if typ == "char":
         newIm.save("characters/"+typ+"_"+str(index)+".jpg")
-        f1 = open('ch_coords.txt', 'a')
-        f1.write(typ+str(index)+".jpg"+"\t"+str(x_min)+","+str(y_min)+","+str(x_max)+","+str(y_max)+"\n")
+        with open('ch_coords.txt', 'a') as f1:
+            f1.write(typ+str(index)+".jpg"+"\t"+str(x_min)+","+str(y_min)+","+str(x_max)+","+str(y_max)+"\n")
 
     elif typ == "word":
         newIm.save("words/"+typ+"_"+str(index)+".jpg")
-        f2 = open('wd_coords.txt', 'a')
-        f2.write(typ+str(index)+".jpg"+"\t"+str(x_min)+","+str(y_min)+","+str(x_max)+","+str(y_max)+"\n")
+        with open('wd_coords.txt', 'a') as f2:
+            f2.write(typ+str(index)+".jpg"+"\t"+str(x_min)+","+str(y_min)+","+str(x_max)+","+str(y_max)+"\n")
 
 
 def main(db_fname):

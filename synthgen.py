@@ -557,16 +557,16 @@ class RendererV3(object):
         # save character and word files as text files
         # print(len(wrds))
 
-        f = open('char_text.txt', 'a')
-        f1 = open('word_text.txt', 'a')
-        for i in range(len(wrds)):
-            # f1.write(wrds[i].encode('utf-8'))
-            # f.write('\n')
-            for j in range(len(wrds[i])):
-                f1.write(wrds[i].encode('utf-8'))
-                f1.write('\n')
-                f.write(wrds[i][j].encode('utf-8'))
-                f.write('\n')
+        with open('char_text.txt', 'a') as f:
+            with open('word_text.txt', 'a') as f1:
+                for i in range(len(wrds)):
+                    # f1.write(wrds[i].encode('utf-8'))
+                    # f.write('\n')
+                    for j in range(len(wrds[i])):
+                        f1.write(wrds[i].encode('utf-8'))
+                        f1.write('\n')
+                        f.write(wrds[i][j].encode('utf-8'))
+                        f.write('\n')
 
 
         bb_idx = np.r_[0, np.cumsum([len(w) for w in wrds])]
