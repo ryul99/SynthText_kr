@@ -31,11 +31,6 @@ def main(db_fname):
         charBB = db['data'][k].attrs['charBB']
         wordBB = db['data'][k].attrs['wordBB']
         txt = db['data'][k].attrs['txt']
-        
-        print("image name        : ", colorize(Color.RED, k, bold=True))
-        print("  ** no. of chars : ", colorize(Color.YELLOW, charBB.shape[-1]))
-        print("  ** no. of words : ", colorize(Color.YELLOW, wordBB.shape[-1]))
-        print("  ** text         : ", colorize(Color.GREEN, txt))
 
         out_imnames[0][idx] = k[:-2]
         out_txt[0][idx] = txt.tolist()
