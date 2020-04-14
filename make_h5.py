@@ -42,7 +42,7 @@ def main(viz=False):
     depth_db = h5py.File(config['depth_db'],'r')
     seg_db = h5py.File(config['seg_db'],'r')
 
-    out_db = h5py.File(outdir + '/dset_kr.h5', 'w')
+    out_db = h5py.File(osp.join(outdir, 'dset_kr.h5'), 'w')
     out_db.create_group('/data')
 
     imnames = sorted(depth_db.keys())
