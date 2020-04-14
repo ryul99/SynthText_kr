@@ -563,9 +563,9 @@ class RendererV3(object):
                     # f1.write(wrds[i].encode('utf-8'))
                     # f.write('\n')
                     for j in range(len(wrds[i])):
-                        f1.write(wrds[i].encode('utf-8'))
+                        f1.write(wrds[i])
                         f1.write('\n')
-                        f.write(wrds[i][j].encode('utf-8'))
+                        f.write(wrds[i][j])
                         f.write('\n')
 
 

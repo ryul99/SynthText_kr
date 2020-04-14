@@ -25,6 +25,7 @@ class Layer(object):
         # alpha for the whole image:
         assert alpha.ndim==2
         self.alpha = alpha
+        self.color = color
         [n,m] = alpha.shape[:2]
 
         color=np.atleast_1d(np.array(color)).astype('uint8')
@@ -47,12 +48,11 @@ class FontColor(object):
 
     def __init__(self, col_file):
         with open(col_file,'rb') as f:
-            self.colorsRGB = cp.load(f)
-            # u = pickle._Unpickler(f)
-            # u.encoding = 'latin1'
-            # p = u.load()
-            # p = cp.load(f)
-            # self.colorsRGB = p
+            # self.colorsRGB = cp.load(f)
+            u = cp._Unpickler(f)
+            u.encoding = 'latin-1'
+            p = u.load()
+            self.colorsRGB = p
         self.ncol = self.colorsRGB.shape[0]
 
         # convert color-means from RGB to LAB for better nearest neighbour

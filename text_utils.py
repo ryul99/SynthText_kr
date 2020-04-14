@@ -454,7 +454,11 @@ class FontState(object):
 
         # get the model to convert from pixel to font pt size:
         with open(font_model_path,'rb') as f:
-            self.font_model = cp.load(f)
+            # self.font_model = cp.load(f)
+            u = cp._Unpickler(f)
+            u.encoding = 'latin-1'
+            p = u.load()
+            self.font_model = p
             
         # get the names of fonts to use:
         self.FONT_LIST = osp.join(data_dir, 'fonts/fontlist.txt')
@@ -548,7 +552,7 @@ class TextSource(object):
         with open(fn,'r') as f:
             for l in f.readlines():
                 line=l.strip()
-                line=line.decode('utf-8')
+                # line=str(line, encoding="utf-8")
                 # print(line)
                 self.txt.append(line)
 
